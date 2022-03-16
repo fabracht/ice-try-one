@@ -58,7 +58,7 @@ async fn main() -> Result<(), Error> {
     //     }
     // }
 
-    let server =     TcpServer::new(8080, "localhost");
+    let server = TcpServer::new(9001, "127.0.0.1");
     let _ = server.connect().await;
     let mut input = String::new();
 

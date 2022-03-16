@@ -26,7 +26,7 @@ impl TcpServer {
     }
 
     pub async fn connect(&self) -> Result<(), tokio::io::Error> {
-        let addr = "127.0.0.1:9001".parse().unwrap();
+        let addr = format!("{}:{}", self.address, self.port).parse().unwrap();
         let socket = TcpSocket::new_v4()?;
         socket.set_reuseaddr(true);
         socket.set_reuseport(true);
