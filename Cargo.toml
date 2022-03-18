@@ -4,6 +4,9 @@ version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[[bin]]
+name = "ice_try_one"
+path = "src/main.rs"
 
 [dependencies]
 webrtc-ice="0.6.6"
@@ -15,3 +18,18 @@ util = { package = "webrtc-util", version = "0.5.3", default-features = false, f
 env_logger="0.9.0"
 dashmap="5.1.0"
 uuid = "0.8.2"
+
+[package.metadata.raze]
+workspace_path = "//cargo"
+targets = [
+    "aarch64-apple-darwin",
+    "aarch64-unknown-linux-gnu",
+    "x86_64-apple-darwin",
+    "x86_64-pc-windows-msvc",
+    "x86_64-unknown-linux-gnu",
+]
+output_buildfile_suffix = "BUILD.bazel"
+genmode = "Remote"
+package_aliases_dir = "."
+default_gen_buildrs = false
+
